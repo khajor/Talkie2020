@@ -11,6 +11,9 @@ function App() {
         alt="logo"
       />
       Talkie
+      <div className= "whos-talking">
+        Who's talking? <button className="edit-button"><img className="edit-icon" src="https://icons-for-free.com/iconfiles/png/512/edit+document+edit+file+edited+editing+icon-1320191040211803620.png" alt="edit icon"/></button>
+      </div>
     </header>
 
 <div className="messages">
@@ -52,4 +55,16 @@ function TextInput(props){
   </div>
 }
 
+function WhosTalking(props){
+  const [nameDisplay, setNameDisplay] = useState('whos-talking')
+  
+  return <div className= "whos-talking">
+    {nameDisplay} 
+    <button 
+    // onClick= {} pass to other file to do this operation 
+    className="edit-button">
+      <img className="edit-icon" src="https://icons-for-free.com/iconfiles/png/512/edit+document+edit+file+edited+editing+icon-1320191040211803620.png" alt="edit icon"/>
+    </button>
+  </div>
+}
 export default App;

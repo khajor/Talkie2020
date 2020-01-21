@@ -44,6 +44,35 @@ header{
   margin-right: 10px
 }
 
+.whos-talking{
+  position: absolute;
+  right: 0;
+  margin:0px 30px;
+  font-size:.6em;
+  display: flex;
+  align-items: center;
+}
+
+.edit-button{
+  margin: 0px 10px;
+  background-color: #fff0;
+  border:none;
+  border-radius: 5px;;
+}
+
+.edit-button:hover{
+  background: #EEFFBD;
+}
+
+.edit-button:focus{
+  outline: #7BC900 solid 1px;
+  border-radius: 5px;
+}
+
+.edit-icon{
+  width:20px;
+}
+
 .text-input{
   position:absolute;
   bottom: 0;
