@@ -1,9 +1,20 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
+import NamePicker from './NamePicker.js';
+import {db} from './db.js'
 
 function App() {
   const [messages, setMessages] = useState([])
-  console.log(messages)
+  const [name, setName] = useState('')
+
+  useEffect(()=>{
+    db.listen({
+      receive: m=> {
+        setMessages(current=> [m, ...current])
+      },
+    })
+  }, [])
+
   return <main>
     <header>
       <img className= "logo" 
@@ -11,21 +22,21 @@ function App() {
         alt="logo"
       />
       Talkie
-      <div className= "whos-talking">
-        Who's talking? <button className="edit-button"><img className="edit-icon" src="https://icons-for-free.com/iconfiles/png/512/edit+document+edit+file+edited+editing+icon-1320191040211803620.png" alt="edit icon"/></button>
-      </div>
+      <NamePicker onSave ={setName}/>
     </header>
 
-<div className="messages">
-  {messages.map((m, i)=>{
-    return  <div key={i} className="message-wrap">
-      <div className="message">{m}</div>
-    </div>
-  })}
-</div>
+  <div className="messages">
+    {messages.map((m, i)=>{
+      return  <div key={i} className="message-wrap">
+        <div className="message">{m.text}</div>
+      </div>
+    })}
+  </div>
 
-    <TextInput onSend={(m)=>{
-      setMessages([m, ...messages])
+    <TextInput onSend={(text)=>{
+      db.send({
+        text, name, ts: new Date(),
+      })
     }} />
   </main>
 }
@@ -52,19 +63,6 @@ function TextInput(props){
         <img className= "send-icon" src="https://static.thenounproject.com/png/383448-200.png" alt="send icon"/>
       </button>
     </form>
-  </div>
-}
-
-function WhosTalking(props){
-  const [nameDisplay, setNameDisplay] = useState('whos-talking')
-  
-  return <div className= "whos-talking">
-    {nameDisplay} 
-    <button 
-    // onClick= {} pass to other file to do this operation 
-    className="edit-button">
-      <img className="edit-icon" src="https://icons-for-free.com/iconfiles/png/512/edit+document+edit+file+edited+editing+icon-1320191040211803620.png" alt="edit icon"/>
-    </button>
   </div>
 }
 export default App;

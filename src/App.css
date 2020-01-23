@@ -47,21 +47,31 @@ header{
 .whos-talking{
   position: absolute;
   right: 0;
-  margin:0px 30px;
-  font-size:.6em;
+  margin:0px 10px;
+
   display: flex;
   align-items: center;
 }
 
+.whos-talking > input {
+  font-size:.6em;
+  width: 150px;
+  height: 25px;
+  border: 1px #7b974b solid;
+  border-radius: 5px;
+}
+
 .edit-button{
-  margin: 0px 10px;
+  margin: 0px 5px;
   background-color: #fff0;
   border:none;
   border-radius: 5px;;
+  font-size: .7em;
+  color: #546832;
 }
 
 .edit-button:hover{
-  background: #EEFFBD;
+  background: rgb(215, 248, 93);
 }
 
 .edit-button:focus{
@@ -69,8 +79,10 @@ header{
   border-radius: 5px;
 }
 
-.edit-icon{
-  width:20px;
+.username{
+  font-size: .75em;
+  color: rgb(red, green, rgb(26, 56, 20)) ;
+  margin-right: 8px;
 }
 
 .text-input{
@@ -137,12 +149,13 @@ header{
 
 .message-wrap{
   width:100%;
+  word-break: break-all;
+  word-break: break-word;
 }
 
 .message{
   background: white;
   font-size: 1.1em;
-  height: auto;
   display: inline-block;
   margin: 10px;
   padding: 8px 10px;
