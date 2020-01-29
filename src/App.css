@@ -94,6 +94,7 @@ header{
   border-top: 1px solid white;
   background: #fffb;
   padding: 0px 5px;
+  display: flex;
 }
 
 .input-field{
@@ -157,6 +158,10 @@ header{
 
 .message-wrap[from='me']{
   justify-content: flex-end;
+}
+
+.message-wrap[from='me']> .message-name{
+  display:hidden;
 }
 
 .message{
