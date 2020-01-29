@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import './App.css';
+import './App.css'
+import './media.css'
 import NamePicker from './NamePicker.js';
 import {db, useDB} from './db.js'
 import {BrowserRouter, Route} from 'react-router-dom'
@@ -8,6 +9,7 @@ import {FiCamera} from 'react-icons/fi'
 import * as firebase from "firebase/app"
 import "firebase/firestore"
 import "firebase/storage"
+import Div100vh from 'react-div-100vh'
 
 function App(){
   useEffect(()=>{
@@ -37,7 +39,7 @@ function Room(props) {
     db.send({ img: imgID, name, ts: new Date(), room }) //now lets send a message that has an image!
   }
   // if showCamera is true, then render the camera div
-  return <main>
+  return <Div100vh>
     {showCamera && <Camera takePicture={takePicture} />}
     <header>
       <img className= "logo" 
@@ -60,7 +62,7 @@ function Room(props) {
     }}
     showCamera={()=>setShowCamera(true)} // a new function that returns another function
     />
-  </main>
+  </Div100vh>
 }
 
 const bucket = 'https://firebasestorage.googleapis.com/v0/b/talkie2020.appspot.com/o/'
@@ -83,8 +85,8 @@ function TextInput(props){
   const [text, setText] = useState('')
 
   return <div className='text-input'>
-    <button onClick={props.showCamera} className='camera-button'> 
-      <FiCamera/>
+    <button onClick={props.showCamera} className='input-button'> 
+      <FiCamera className="camera-icon"/>
     </button>
   
     <form 
@@ -101,7 +103,7 @@ function TextInput(props){
         className="input-field"
       />
 
-      <button className='send-button' disabled={!text}>
+      <button className='input-button' disabled={!text}>
         <img className= "send-icon" src="https://static.thenounproject.com/png/383448-200.png" alt="send icon"/>
       </button>
     </form>
