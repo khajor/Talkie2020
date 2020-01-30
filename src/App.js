@@ -42,11 +42,13 @@ function Room(props) {
   return <Div100vh>
     {showCamera && <Camera takePicture={takePicture} />}
     <header>
-      <img className= "logo" 
-        src="https://www.pngrepo.com/png/264733/170/chat-speech-bubble.png"
-        alt="logo"
-      />
-      Talkie
+      <div className="talkie-logo">
+        <img className= "logo" 
+          src="https://www.pngrepo.com/png/264733/170/chat-speech-bubble.png"
+          alt="logo"
+        />
+        Talkie
+      </div>
       <NamePicker onSave ={setName}/>
     </header>
 

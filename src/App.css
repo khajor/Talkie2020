@@ -34,7 +34,6 @@ body{
 }
 
 header{
-  /* position: absolute; */
   width: 100%;
   height: 3.2rem;
   top:0;
@@ -45,6 +44,12 @@ header{
   padding: 0px 10px;
   display: flex;
   align-items: center;
+  justify-content:space-between;
+}
+
+.talkie-logo{
+  display: flex;
+  align-items: center;
 }
 
 .logo{
@@ -53,10 +58,7 @@ header{
 }
 
 .whos-talking{
-  position: absolute;
-  right: 0;
   margin:0px 10px;
-
   display: flex;
   align-items: center;
 }
